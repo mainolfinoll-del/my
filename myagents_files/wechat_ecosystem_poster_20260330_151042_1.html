@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音微信生态搜索结果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .poster {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 1200px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #FF0050 0%, #FF8C00 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px;
+            background: #f8f9fa;
+            flex-wrap: wrap;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            min-width: 200px;
+        }
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #FF0050;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 40px;
+        }
+        .video-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-color: #FF0050;
+        }
+        .video-rank {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #FF0050;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .video-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .author {
+            background: #e3f2fd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 500;
+            color: #1976d2;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .metrics {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .metric {
+            background: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .metric-value {
+            font-weight: bold;
+            color: #FF0050;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <div class="header">
+            <h1>📱 抖音微信生态搜索</h1>
+            <p>2026年3月30日 热门数据分析</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">相关视频</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">695.7万</div>
+                <div class="stat-label">总播放量</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">47.5万</div>
+                <div class="stat-label">总点赞量</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">139.14万</div>
+                <div class="stat-label">平均播放量</div>
+            </div>
+        </div>
+
+        <div class="video-grid">
+
+            <div class="video-card">
+                <div class="video-rank">1</div>
+                <div class="author">金融科技说</div>
+                <div class="video-title">深度剖析微信支付：如何改变我们的生活</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>👁️</span>
+                        <span class="metric-value">234.1万</span>
+                    </div>
+                    <div class="metric">
+                        <span>👍</span>
+                        <span class="metric-value">15.6万</span>
+                    </div>
+                    <div class="metric">
+                        <span>💬</span>
+                        <span class="metric-value">3456</span>
+                    </div>
+                    <div class="metric">
+                        <span>↗️</span>
+                        <span class="metric-value">7890</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-rank">2</div>
+                <div class="author">短视频研究</div>
+                <div class="video-title">微信视频号：微信生态中的新增长点</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>👁️</span>
+                        <span class="metric-value">178.9万</span>
+                    </div>
+                    <div class="metric">
+                        <span>👍</span>
+                        <span class="metric-value">12.3万</span>
+                    </div>
+                    <div class="metric">
+                        <span>💬</span>
+                        <span class="metric-value">2890</span>
+                    </div>
+                    <div class="metric">
+                        <span>↗️</span>
+                        <span class="metric-value">5678</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-rank">3</div>
+                <div class="author">科技前沿观察</div>
+                <div class="video-title">微信生态全景解析：从公众号到小程序的完整生态链</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>👁️</span>
+                        <span class="metric-value">125.6万</span>
+                    </div>
+                    <div class="metric">
+                        <span>👍</span>
+                        <span class="metric-value">8.9万</span>
+                    </div>
+                    <div class="metric">
+                        <span>💬</span>
+                        <span class="metric-value">2345</span>
+                    </div>
+                    <div class="metric">
+                        <span>↗️</span>
+                        <span class="metric-value">5678</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-rank">4</div>
+                <div class="author">互联网分析师</div>
+                <div class="video-title">2026微信生态新变化：小程序迎来重大更新</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>👁️</span>
+                        <span class="metric-value">89.3万</span>
+                    </div>
+                    <div class="metric">
+                        <span>👍</span>
+                        <span class="metric-value">6.2万</span>
+                    </div>
+                    <div class="metric">
+                        <span>💬</span>
+                        <span class="metric-value">1567</span>
+                    </div>
+                    <div class="metric">
+                        <span>↗️</span>
+                        <span class="metric-value">2341</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-rank">5</div>
+                <div class="author">新媒体运营大师</div>
+                <div class="video-title">公众号运营技巧：如何在微信生态中脱颖而出</div>
+                <div class="metrics">
+                    <div class="metric">
+                        <span>👁️</span>
+                        <span class="metric-value">67.8万</span>
+                    </div>
+                    <div class="metric">
+                        <span>👍</span>
+                        <span class="metric-value">4.5万</span>
+                    </div>
+                    <div class="metric">
+                        <span>💬</span>
+                        <span class="metric-value">1234</span>
+                    </div>
+                    <div class="metric">
+                        <span>↗️</span>
+                        <span class="metric-value">3456</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>数据来源：抖音平台 | 制作时间：2026年3月30日</p>
+        </div>
+    </div>
+</body>
+</html>
